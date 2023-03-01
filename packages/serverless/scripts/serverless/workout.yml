@@ -1,0 +1,74 @@
+workout-create:
+  name: "workout-create"
+  handler: dist/functions/workout/create.handler
+  description: Create a workout
+  reservedConcurrency: 10
+  memorySize: 512
+  timeout: 8
+  events:
+    - http:
+        path: "workouts/create/"
+        method: post
+        # authorizer:
+        #     name: authorizer-sk
+        #     type: request
+
+workout-get:
+  name: "workout-get"
+  handler: dist/functions/workout/get.handler
+  description: Get a workout
+  reservedConcurrency: 10
+  memorySize: 512
+  timeout: 8
+  events:
+    - http:
+        path: "workout/get/{id}/"
+        method: get
+        # authorizer:
+        #     name: authorizer-sk
+        #     type: request
+
+workout-delete:
+  name: "workout-delete"
+  handler: dist/functions/workout/delete.handler
+  description: Delete a workout
+  reservedConcurrency: 10
+  memorySize: 512
+  timeout: 8
+  events:
+    - http:
+        path: "workouts/delete/{id}/"
+        method: delete
+        # authorizer:
+        #     name: authorizer-sk
+        #     type: request
+
+workout-update:
+  name: "workout-update"
+  handler: dist/functions/workout/delete.handler
+  description: Update a workout
+  reservedConcurrency: 10
+  memorySize: 512
+  timeout: 8
+  events:
+    - http:
+        path: "workouts/update/"
+        method: put
+        # authorizer:
+        #     name: authorizer-sk
+        #     type: request
+
+workout-all:
+  name: "workout-all"
+  handler: dist/functions/workout/retrieve.handler
+  description: Get all workouts
+  reservedConcurrency: 10
+  memorySize: 512
+  timeout: 8
+  events:
+    - http:
+        path: "workouts/"
+        method: get
+        # authorizer:
+        #     name: authorizer-sk
+        #     type: request

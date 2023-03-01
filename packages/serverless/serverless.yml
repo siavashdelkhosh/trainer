@@ -1,0 +1,37 @@
+service: trainer
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: local
+
+plugins:
+  - serverless-scriptable-plugin
+  - serverless-dynamodb-local
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  scriptHooks:
+    before:package:createDeploymentArtifacts: rushx build:tsc
+    before:package:function:package: rushx build:tsc
+  webpack:
+    webpackConfig: "webpack.config.js"
+    includeModules: false
+  serverless-offline:
+    httpPort: 3000
+    allowCache: true
+    noPrependStageInUrl: true
+  dynamodb:
+    stages:
+      - local
+    start:
+      port: 8000
+      inMemory: true
+      convertEmptyValues: true
+
+resources:
+  Resources: ${file(scripts/dynamodb/tables.yml)}
+
+functions: ${file(scripts/serverless.js)}

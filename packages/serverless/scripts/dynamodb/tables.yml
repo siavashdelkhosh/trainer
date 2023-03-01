@@ -1,0 +1,4 @@
+SimpleData:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: Simple-table

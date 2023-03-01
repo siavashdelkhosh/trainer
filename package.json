@@ -1,0 +1,8 @@
+{
+  "name": "trainer",
+  "version": "1.0.0",
+  "description": "The best application in the world",
+  "main": "index.js",
+  "author": "siavash <siavash.delkhosh@checkout.com>",
+  "license": "MIT"
+}

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": ".build",
+    "module": "CommonJS",
+    "target": "ES6",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "importHelpers": false,
+    "allowJs": false,
+    "strict": true,
+    "useUnknownInCatchVariables": false,
+    "lib": ["es6", "dom"]
+  }
+}
